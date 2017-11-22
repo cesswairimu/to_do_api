@@ -7,5 +7,5 @@ RSpec.describe Item, type: :model do
     
   #Validation test
   #ensure column name is present before save
-  it { should validate (:name) }
+  it { should validate_presence_of(:name) }
 end
