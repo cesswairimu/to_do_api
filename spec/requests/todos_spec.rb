@@ -1,20 +1,21 @@
 require 'rails_helper'
 
-Rspec.describe 'Todos Api', type: :request do
+RSpec.describe 'Todos Api', type: :request do
   #initialize test data
   let(:todos){ create_list(:todo, 10) }
   let(:todo_id) { todos.first.id }
 
   #Test suites for GET /todos
-  describe 'GET /todos' do
-    #make http request before each example
-    before { get '/todos' }
+    describe 'GET /todos' do
+     # make HTTP get request before each example
+      before { get '/todos'  }
 
-    it 'returns  todos' do
-      #json is a custom helper to parse JSON responses
-      expect(:json).not_to_be_empty
-      expect(:json.size).to eq(10)
-    end
+      it 'returns todos' do
+        # Note `json` is a custom helper to parse JSON responses
+        expect(json).not_to be_empty
+        expect(json.size).to eq(10)
+      end
+
 
     it 'returns status 200' do
       expect(response).to have_http_status(200)
@@ -28,7 +29,7 @@ Rspec.describe 'Todos Api', type: :request do
 
     context 'when the record exists' do
       it 'returns the todo' do
-        expect(json).to_to_be_empty
+        expect(json).not_to be_empty
         expect(json['id']).to eq(todo_id)
       end
 
@@ -75,7 +76,7 @@ Rspec.describe 'Todos Api', type: :request do
       end
 
       it 'returns a validation failure message' do
-        expect(response.body).to match(/Validation failed: Created by cannot be blank/)
+        expect(response.body).to match(/Validation failed: Created by can't be blank/)
       end
     end
   end
@@ -95,10 +96,11 @@ Rspec.describe 'Todos Api', type: :request do
         expect(response).to have_http_status(204)
       end
     end
+    end
 
     #Test suites for DELETE /todos/:id
     describe 'DELETE /todos/:id' do
-      before{ delete "todos/#{todo_id}" }
+    before { delete "/todos/#{todo_id}" }
 
       it 'returns status 204' do
         expect(response).to have_http_status(204)
