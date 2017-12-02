@@ -1,24 +1,24 @@
-# README
+# TODO API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my first ever api
+following the tutorial of Austin Kabiru [Build a RESTful JSON API with Rails 5] (https://scotch.io/tutorials/build-a-restful-json-api-with-rails-5-part-one)
 
-Things you may want to cover:
+Things covered:
 
-* Ruby version
+* Generating an api
 
-* System dependencies
+* API TDD with rspec
 
-* Configuration
+* REST
 
-* Database creation
+* Json parsing and handling requests and responses
 
-* Database initialization
+* Token-based authentication with JWT (JSON Web Tokens)
 
-* How to run the test suite
+* Versioning
 
-* Services (job queues, cache servers, search engines, etc.)
+* Serializers 
 
-* Deployment instructions
+* Pagination
 
 * ...
