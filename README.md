@@ -13,12 +13,19 @@ Things covered:
 
 * Json parsing and handling requests and responses
 
-* Token-based authentication with JWT (JSON Web Tokens)
-
 * Versioning
 
 * Serializers 
 
 * Pagination
 
-* ...
+* Token-based authentication with JWT (JSON Web Tokens)
+
+1. JsonWebToken - Encode and decode jwt tokens
+
+2. AuthorizeApiRequest - Authorize each API request
+
+3. AuthenticateUser - Authenticate users
+
+4. AuthenticationController - Orchestrate authentication process
+
