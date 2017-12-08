@@ -12,19 +12,21 @@ module ExceptionHandler
 
     #Define custom handler
     rescue_from ActiveRecord::RecordInvalid, with: :four_twenty_two
-    rescue_from ExpectionHandler::AuthenticationError, with: :unauthorized_request
-    rescue_from ExpectionHandler::MissingToken, with: :four_twenty_two
-    rescue_from ExpectionHandler::InvalidToken, with: :four_twenty_two
+    rescue_from ExceptionHandler::AuthenticationError, with: :unauthorized_request
+    rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
+    rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
+
+
   end
 
   private
-  
- # JSON response with message; Status code 422 - unprocessable entity
+
+  # JSON response with message; Status code 422 - unprocessable entity
   def four_twenty_two(e)
     json_response({ message: e.message }, :not_found)
   end
 
-   # JSON response with message; Status code 401 - Unauthorized
+  # JSON response with message; Status code 401 - Unauthorized
   def unauthorized_request(e)
     json.response({ message: e.message }, :unauthorized )
   end
