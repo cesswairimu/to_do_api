@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+  skip_before_action :authorize_request, only: :create
 
   def create
     # ! In the event there's an error, an exception will be raised and handled in the exception handler
